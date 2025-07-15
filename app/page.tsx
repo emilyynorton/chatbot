@@ -277,7 +277,7 @@ export default function Home() {
         </div>
       )}
 
-      <div style={{ display: "flex", gap: "1.5rem" }}>
+      <div style={{ display: "flex", gap: "1.5rem", flexGrow: 1, overflow: 'hidden' }}>
         {/* Sidebar with conversation history - only shown for authenticated users */}
         {isAuthenticated && (
           <div style={{ 
@@ -337,7 +337,7 @@ export default function Home() {
         )}
         
         {/* Main chat area - flex grows to fill space when sidebar is not present */}
-        <div style={{ flex: 1 }}>
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
           <div
             ref={chatContainerRef}
             style={{
@@ -345,10 +345,10 @@ export default function Home() {
               border: "1px solid var(--border-color)",
               borderRadius: "12px",
               padding: "1rem 1.5rem",
-              height: "450px",
               overflowY: "auto",
               marginBottom: "1rem",
               position: "relative",
+              flexGrow: 1,
             }}
           >
             {error && (
