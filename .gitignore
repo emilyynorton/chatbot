@@ -40,5 +40,12 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# Generated Prisma files
 /app/generated/prisma
-/client_secret_493929154383-05ls01aq5koni3er2ol286ou19fd4281.apps.googleusercontent.com.json
+
+# OAuth and API keys/secrets
+client_secret*.json
+*.pem
+*_key.json
+*_secret*.json
+service-account*.json
