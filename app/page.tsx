@@ -202,40 +202,27 @@ export default function Home() {
   };
 
   return (
-    <div style={{ 
-      maxWidth: "900px", 
-      margin: "auto", 
-      padding: "1.5rem",
-      background: "linear-gradient(145deg,rgb(255, 255, 255) 0%,rgb(255, 255, 255) 100%)",
-      borderRadius: "15px",
-      boxShadow: "0 4px 16px rgba(44, 62, 80, 0.07)",
-      position: "relative",
-      color: "#2c3e50"
-    }}>
+    <div className="main-chatbot-container" style={{ position: "relative" }}>
 
       <div style={{ 
         display: "flex", 
         justifyContent: "space-between", 
         alignItems: "center",
-        marginBottom: "0.75rem",
-        borderBottom: "1px solid #bcdffb",
-        paddingBottom: "0.5rem"
+        marginBottom: "1rem",
+        borderBottom: "1px solid var(--border-color)",
+        paddingBottom: "1rem"
       }}>
         <div>
           <h1 style={{
-            fontSize: "3rem",
-            fontWeight: "700",
-            marginBottom: "0.2rem",
-            background: "linear-gradient(90deg, #4db6ac 0%, #80cbc4 100%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            textShadow: "0 2px 8px rgba(59, 130, 246, 0.08)"
+            fontSize: "1.75rem",
+            fontWeight: "600",
+            color: "var(--text-primary)"
           }}>AI Chatbot</h1>
           {!isAuthenticated && (
             <p style={{
-              fontSize: "1.2rem",
-              color: "#3b82f6",
-              fontStyle: "italic"
+              fontSize: "0.9rem",
+              color: "var(--text-secondary)",
+              marginTop: "0.25rem"
             }}>
               Sign in to save your conversation history
             </p>
@@ -247,24 +234,21 @@ export default function Home() {
       {showMemoryNotice && !isAuthenticated && (
         <div style={{
           marginBottom: "1rem",
-          padding: "0.8rem",
-          background: "linear-gradient(145deg, #f7fafc 0%, #e3eaf6 100%)",
-          border: "1px solid #80cbc4",
-          borderRadius: "10px",
-          boxShadow: "0 2px 8px rgba(44, 62, 80, 0.07)",
-          position: "relative",
-          overflow: "hidden"
+          padding: "0.8rem 1rem",
+          background: "var(--accent-blue-light)",
+          border: "1px solid var(--border-color)",
+          borderRadius: "8px",
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center'
         }}>
-          <p style={{ fontSize: "0.95rem", color: "#2d3748" }}>Your conversation won't be saved unless you sign in.</p>
+          <p style={{ fontSize: "0.9rem", color: "var(--text-primary)" }}>Your conversation won't be saved unless you sign in.</p>
           <button 
             onClick={() => setShowMemoryNotice(false)}
             style={{
-              fontSize: "0.8rem",
-              color: "#26a69a",
+              color: "var(--text-secondary)",
               background: "transparent",
               border: "none",
-              padding: "4px 8px",
-              marginLeft: "8px",
               cursor: "pointer",
               textDecoration: "underline"
             }}
@@ -277,15 +261,13 @@ export default function Home() {
       {loading && (
         <div style={{
           textAlign: "center",
-          padding: "0.5rem 1.2rem",
-          background: "linear-gradient(90deg, #3f51b5 0%, #5c6bc0 100%)",
-          color: "white",
+          padding: "0.4rem 1rem",
+          background: "var(--accent-blue)",
+          color: "#ffffff",
           borderRadius: "20px",
-          fontSize: "0.9rem",
-          fontWeight: "bold",
-          boxShadow: "0 2px 8px rgba(44, 62, 80, 0.07)",
+          fontSize: "0.85rem",
+          fontWeight: "500",
           marginBottom: "1rem",
-          animation: "pulse 1.5s infinite",
           display: "inline-block",
           position: "relative",
           left: "50%",
@@ -294,32 +276,29 @@ export default function Home() {
           Thinking...
         </div>
       )}
-            <div style={{ display: "flex", gap: "1.5rem" }}>
+
+      <div style={{ display: "flex", gap: "1.5rem" }}>
         {/* Sidebar with conversation history - only shown for authenticated users */}
         {isAuthenticated && (
           <div style={{ 
             width: "250px", 
-            borderRight: "none", 
-            padding: "0.8rem",
-            background: "rgba(255, 255, 255, 0.5)",
-            borderRadius: "12px",
-            boxShadow: "0 2px 8px rgba(44, 62, 80, 0.07)"
+            borderRight: "1px solid var(--border-color)", 
+            paddingRight: "1.5rem",
           }}>
             <button 
               onClick={newConversation}
               style={{
                 width: "100%",
-                padding: "0.7rem",
-                marginBottom: "1.2rem",
-                background: "linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%)",
+                padding: "0.6rem",
+                marginBottom: "1rem",
+                background: "var(--accent-blue)",
                 border: "none",
-                borderRadius: "10px",
+                borderRadius: "8px",
                 cursor: "pointer",
-                color: "#222e3a",
-                fontWeight: "bold",
-                fontSize: "1rem",
-                boxShadow: "0 2px 8px rgba(44, 62, 80, 0.07)",
-                transition: "all 0.2s ease"
+                color: "#ffffff",
+                fontWeight: "600",
+                fontSize: "0.95rem",
+                transition: "background-color 0.2s ease"
               }}
             >
               New Chat
@@ -328,33 +307,25 @@ export default function Home() {
             <div style={{ 
               overflowY: "auto", 
               maxHeight: "500px", 
-              paddingRight: "5px"
             }}>
               {conversations.map((conv) => (
                 <div
                   key={conv.id}
                   onClick={() => loadConversation(conv.id)}
                   style={{
-                    padding: "0.8rem",
-                    margin: "0.5rem 0",
-                    borderRadius: "10px",
-                    background: conversationId === conv.id ? 
-                      "linear-gradient(135deg, #e3eaf6 0%, #bcdffb 100%)" : 
-                      "#fff",
+                    padding: "0.7rem",
+                    margin: "0.4rem 0",
+                    borderRadius: "8px",
+                    background: conversationId === conv.id ? "var(--accent-blue-light)" : "transparent",
+                    color: conversationId === conv.id ? "var(--text-primary)" : "var(--text-secondary)",
                     cursor: "pointer",
-                    border: conversationId === conv.id ? 
-                      "1px solid #3b82f6" : 
-                      "1px solid #e5e7eb",
-                    boxShadow: conversationId === conv.id ? 
-                      "0 2px 8px rgba(44, 62, 80, 0.07)" : 
-                      "0 1px 2px rgba(44, 62, 80, 0.03)",
                     transition: "all 0.2s ease"
                   }}
                 >
                   {conv.title || "Untitled"}
                   <div style={{ 
                     fontSize: "0.75rem", 
-                    color: conversationId === conv.id ? "#2563eb" : "#64748b",
+                    color: "var(--text-secondary)",
                     marginTop: "4px"
                   }}>
                     {new Date(conv.createdAt).toLocaleDateString()}
@@ -370,31 +341,26 @@ export default function Home() {
           <div
             ref={chatContainerRef}
             style={{
-              background: "#fff",
-              border: "none",
-              borderRadius: "15px",
-              padding: "1.5rem",
-              height: "400px",
+              background: "var(--background-container)",
+              border: "1px solid var(--border-color)",
+              borderRadius: "12px",
+              padding: "1rem 1.5rem",
+              height: "450px",
               overflowY: "auto",
-              marginBottom: "1.5rem",
+              marginBottom: "1rem",
               position: "relative",
-              boxShadow: "0 5px 15px rgba(77, 182, 172, 0.15)",
-              backgroundImage: "none"
             }}
           >
             {error && (
               <div style={{
                 position: "absolute",
-                top: "15px",
-                right: "15px",
-                background: "linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%)",
-                color: "#b71c1c",
+                top: "1rem",
+                right: "1rem",
+                background: "var(--accent-blue-light)",
+                color: "var(--text-primary)",
                 padding: "0.5rem 1rem",
-                borderRadius: "10px",
-                fontSize: "0.9rem",
-                fontWeight: "500",
-                boxShadow: "0 4px 10px rgba(239, 154, 154, 0.3)",
-                border: "1px solid #bcdffb",
+                borderRadius: "8px",
+                border: "1px solid var(--border-color)",
                 maxWidth: "80%",
               }}>
                 {error}
@@ -440,23 +406,23 @@ export default function Home() {
                         <div style={{ 
                           padding: "14px 20px",
                           background: isUser ? 
-                            "linear-gradient(135deg, #bcdffb 0%, #e3eaf6 100%)" : 
-                            "#fff",
-                          color: isUser ? "#222e3a" : "#374151",
+                            "#90cdf4" : 
+                            "#e2e8f0",
+                          color: isUser ? "#1a365d" : "#1a365d",
                           borderRadius: isUser ? "18px 18px 0 18px" : "18px 18px 18px 0",
                           maxWidth: "85%",
                           boxShadow: isUser ? 
-                            "0 2px 8px rgba(44, 62, 80, 0.07)" : 
-                            "0 1px 2px rgba(44, 62, 80, 0.03)",
+                            "0 2px 8px rgba(26, 54, 93, 0.08)" : 
+                            "0 1px 2px rgba(26, 54, 93, 0.03)",
                           border: isUser ? 
-                            "1px solid #3b82f6" : 
-                            "1px solid #e5e7eb",
+                            "1px solid #1a365d" : 
+                            "1px solid #e2e8f0",
                           position: "relative"
                         }}>
                           <div style={{ 
                             fontWeight: 'bold', 
                             marginBottom: '6px', 
-                            color: isUser ? "#2563eb" : "#64748b",
+                            color: isUser ? "#1a365d" : "#1a365d",
                             fontSize: '0.9rem'
                           }}>
                             {isUser ? "You" : "AI Assistant"}
@@ -471,7 +437,7 @@ export default function Home() {
                         </div>
                         <div style={{ 
                           fontSize: '0.7rem', 
-                          color: '#64748b', 
+                          color: '#1a365d', 
                           marginTop: '4px',
                           marginLeft: isUser ? '0' : '10px',
                           marginRight: isUser ? '10px' : '0'
@@ -487,55 +453,40 @@ export default function Home() {
             
 
           </div>
-          <div style={{ 
-            display: 'flex',
-            position: 'relative',
-            alignItems: 'center',
-            marginTop: '1rem',
-            boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
-            borderRadius: '25px',
-            backgroundColor: '#f7fafc',
-            padding: '5px'
+          <form onSubmit={(e) => { e.preventDefault(); sendMessage(); }} style={{ 
+            display: "flex", 
+            gap: "0.75rem",
+            paddingTop: "1rem",
+            borderTop: "1px solid var(--border-color)"
           }}>
             <input
               type="text"
               value={input}
-              placeholder="Type your message..."
               onChange={(e) => setInput(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && !loading && sendMessage()}
-              style={{ 
-                width: "100%", 
-                padding: "0.9rem 1.2rem",
-                fontSize: '1rem',
-                border: 'none',
-                outline: 'none',
-                borderRadius: '25px',
-                backgroundColor: 'transparent'
-              }}
-              disabled={loading}
-            />
-            <button 
-              onClick={sendMessage} 
-              style={{ 
-                padding: "0.8rem 1.5rem",
-                background: loading ? 
-                  "linear-gradient(90deg, #e5e7eb 0%, #f3f4f6 100%)" : 
-                  "linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%)",
-                color: "white",
-                border: "none",
-                borderRadius: "20px",
-                cursor: loading ? "not-allowed" : "pointer",
-                fontWeight: "bold",
+              placeholder="Type your message..."
+              style={{
+                flex: 1,
+                padding: "0.7rem 1rem",
+                border: "1px solid var(--border-color)",
+                borderRadius: "8px",
                 fontSize: "1rem",
-                marginRight: '5px',
-                boxShadow: loading ? "none" : "0 2px 8px rgba(44, 62, 80, 0.07)",
-                transition: "all 0.2s ease"
+                color: "var(--text-primary)",
+                background: "var(--background-container)",
               }}
-              disabled={loading}
-            >
+            />
+            <button type="submit" disabled={loading} style={{
+              padding: "0.7rem 1.2rem",
+              background: "var(--accent-blue)",
+              border: "none",
+              borderRadius: "8px",
+              color: "#ffffff",
+              fontWeight: "600",
+              cursor: "pointer",
+              transition: "background-color 0.2s ease"
+            }}>
               {loading ? "Sending..." : "Send"}
             </button>
-          </div>
+          </form>
           <style jsx global>{`
             @keyframes pulse {
               0% {

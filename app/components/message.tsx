@@ -29,7 +29,7 @@ export function Message({ role, content, index }: MessageProps) {
         textAlign: isUser ? "right" : "left",
         marginBottom: "1rem",
         padding: "12px 16px",
-        backgroundColor: isUser ? "#b3e5fc" : "#c8e6c9",
+        backgroundColor: isUser ? 'var(--accent-blue-light)' : 'var(--background-body)',
         borderRadius: "8px",
         maxWidth: "80%",
         marginLeft: isUser ? "auto" : "0",

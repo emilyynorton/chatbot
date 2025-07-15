@@ -54,7 +54,7 @@ export default function SignIn() {
             ) : (
               <>
                 <svg
-                  className="mr-2 h-5 w-5"
+                  style={{ width: '20px', height: '20px', marginRight: '0.5rem' }}
                   viewBox="0 0 24 24"
                   fill="currentColor"
                 >
