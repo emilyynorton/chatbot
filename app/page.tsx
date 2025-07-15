@@ -206,9 +206,9 @@ export default function Home() {
       maxWidth: "900px", 
       margin: "auto", 
       padding: "1.5rem",
-      background: "linear-gradient(145deg, #e0f7fa 0%, #e8f5e9 100%)",
+      background: "linear-gradient(145deg,rgb(255, 255, 255) 0%,rgb(255, 255, 255) 100%)",
       borderRadius: "15px",
-      boxShadow: "0 8px 20px rgba(0,180,216,0.1)",
+      boxShadow: "0 4px 16px rgba(44, 62, 80, 0.07)",
       position: "relative",
       color: "#2c3e50"
     }}>
@@ -218,7 +218,7 @@ export default function Home() {
         justifyContent: "space-between", 
         alignItems: "center",
         marginBottom: "0.75rem",
-        borderBottom: "1px solid #4db6ac",
+        borderBottom: "1px solid #bcdffb",
         paddingBottom: "0.5rem"
       }}>
         <div>
@@ -229,12 +229,12 @@ export default function Home() {
             background: "linear-gradient(90deg, #4db6ac 0%, #80cbc4 100%)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
-            textShadow: "0 2px 8px rgba(77, 182, 172, 0.3)"
+            textShadow: "0 2px 8px rgba(59, 130, 246, 0.08)"
           }}>AI Chatbot</h1>
           {!isAuthenticated && (
             <p style={{
               fontSize: "1.2rem",
-              color: "#5c6bc0",
+              color: "#3b82f6",
               fontStyle: "italic"
             }}>
               Sign in to save your conversation history
@@ -248,14 +248,14 @@ export default function Home() {
         <div style={{
           marginBottom: "1rem",
           padding: "0.8rem",
-          background: "linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%)",
+          background: "linear-gradient(145deg, #f7fafc 0%, #e3eaf6 100%)",
           border: "1px solid #80cbc4",
           borderRadius: "10px",
-          boxShadow: "0 4px 6px rgba(77, 182, 172, 0.2)",
+          boxShadow: "0 2px 8px rgba(44, 62, 80, 0.07)",
           position: "relative",
           overflow: "hidden"
         }}>
-          <p style={{ fontSize: "0.95rem", color: "#00796b" }}>Your conversation won't be saved unless you sign in.</p>
+          <p style={{ fontSize: "0.95rem", color: "#2d3748" }}>Your conversation won't be saved unless you sign in.</p>
           <button 
             onClick={() => setShowMemoryNotice(false)}
             style={{
@@ -283,7 +283,7 @@ export default function Home() {
           borderRadius: "20px",
           fontSize: "0.9rem",
           fontWeight: "bold",
-          boxShadow: "0 4px 10px rgba(63, 81, 181, 0.3)",
+          boxShadow: "0 2px 8px rgba(44, 62, 80, 0.07)",
           marginBottom: "1rem",
           animation: "pulse 1.5s infinite",
           display: "inline-block",
@@ -303,7 +303,7 @@ export default function Home() {
             padding: "0.8rem",
             background: "rgba(255, 255, 255, 0.5)",
             borderRadius: "12px",
-            boxShadow: "0 4px 15px rgba(0,0,0,0.05)"
+            boxShadow: "0 2px 8px rgba(44, 62, 80, 0.07)"
           }}>
             <button 
               onClick={newConversation}
@@ -311,14 +311,14 @@ export default function Home() {
                 width: "100%",
                 padding: "0.7rem",
                 marginBottom: "1.2rem",
-                background: "linear-gradient(90deg, #4db6ac 0%, #80cbc4 100%)",
+                background: "linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%)",
                 border: "none",
                 borderRadius: "10px",
                 cursor: "pointer",
-                color: "#37474f",
+                color: "#222e3a",
                 fontWeight: "bold",
                 fontSize: "1rem",
-                boxShadow: "0 4px 10px rgba(77, 182, 172, 0.3)",
+                boxShadow: "0 2px 8px rgba(44, 62, 80, 0.07)",
                 transition: "all 0.2s ease"
               }}
             >
@@ -339,22 +339,22 @@ export default function Home() {
                     margin: "0.5rem 0",
                     borderRadius: "10px",
                     background: conversationId === conv.id ? 
-                      "linear-gradient(135deg, rgba(77, 182, 172, 0.15) 0%, rgba(128, 203, 196, 0.15) 100%)" : 
-                      "rgba(255,255,255,0.7)",
+                      "linear-gradient(135deg, #e3eaf6 0%, #bcdffb 100%)" : 
+                      "#fff",
                     cursor: "pointer",
                     border: conversationId === conv.id ? 
-                      "1px solid rgba(77, 182, 172, 0.3)" : 
-                      "1px solid rgba(0,0,0,0.05)",
+                      "1px solid #3b82f6" : 
+                      "1px solid #e5e7eb",
                     boxShadow: conversationId === conv.id ? 
-                      "0 4px 8px rgba(77, 182, 172, 0.1)" : 
-                      "0 2px 4px rgba(0,0,0,0.02)",
+                      "0 2px 8px rgba(44, 62, 80, 0.07)" : 
+                      "0 1px 2px rgba(44, 62, 80, 0.03)",
                     transition: "all 0.2s ease"
                   }}
                 >
                   {conv.title || "Untitled"}
                   <div style={{ 
                     fontSize: "0.75rem", 
-                    color: conversationId === conv.id ? "#00796b" : "#26a69a",
+                    color: conversationId === conv.id ? "#2563eb" : "#64748b",
                     marginTop: "4px"
                   }}>
                     {new Date(conv.createdAt).toLocaleDateString()}
@@ -370,7 +370,7 @@ export default function Home() {
           <div
             ref={chatContainerRef}
             style={{
-              background: "rgba(255, 255, 255, 0.9)",
+              background: "#fff",
               border: "none",
               borderRadius: "15px",
               padding: "1.5rem",
@@ -379,7 +379,7 @@ export default function Home() {
               marginBottom: "1.5rem",
               position: "relative",
               boxShadow: "0 5px 15px rgba(77, 182, 172, 0.15)",
-              backgroundImage: "url('data:image/svg+xml,%3Csvg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z\' fill=\'%234db6ac\' fill-opacity=\'0.05\' fill-rule=\'evenodd\'/%3E%3C/svg%3E')"
+              backgroundImage: "none"
             }}
           >
             {error && (
@@ -387,14 +387,14 @@ export default function Home() {
                 position: "absolute",
                 top: "15px",
                 right: "15px",
-                background: "linear-gradient(90deg, #ffcdd2 0%, #ef9a9a 100%)",
+                background: "linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%)",
                 color: "#b71c1c",
                 padding: "0.5rem 1rem",
                 borderRadius: "10px",
                 fontSize: "0.9rem",
                 fontWeight: "500",
                 boxShadow: "0 4px 10px rgba(239, 154, 154, 0.3)",
-                border: "1px solid #ef9a9a",
+                border: "1px solid #bcdffb",
                 maxWidth: "80%",
               }}>
                 {error}
@@ -440,23 +440,23 @@ export default function Home() {
                         <div style={{ 
                           padding: "14px 20px",
                           background: isUser ? 
-                            "linear-gradient(135deg, #3f51b5 0%, #5c6bc0 100%)" : 
-                            "linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%)",
-                          color: isUser ? "white" : "#333",
+                            "linear-gradient(135deg, #bcdffb 0%, #e3eaf6 100%)" : 
+                            "#fff",
+                          color: isUser ? "#222e3a" : "#374151",
                           borderRadius: isUser ? "18px 18px 0 18px" : "18px 18px 18px 0",
                           maxWidth: "85%",
                           boxShadow: isUser ? 
-                            "0 4px 15px rgba(63, 81, 181, 0.2)" : 
-                            "0 4px 15px rgba(92, 107, 192, 0.1)",
+                            "0 2px 8px rgba(44, 62, 80, 0.07)" : 
+                            "0 1px 2px rgba(44, 62, 80, 0.03)",
                           border: isUser ? 
-                            "1px solid rgba(63, 81, 181, 0.1)" : 
-                            "1px solid rgba(187, 222, 251, 0.5)",
+                            "1px solid #3b82f6" : 
+                            "1px solid #e5e7eb",
                           position: "relative"
                         }}>
                           <div style={{ 
                             fontWeight: 'bold', 
                             marginBottom: '6px', 
-                            color: isUser ? "#1565C0" : "#00796b",
+                            color: isUser ? "#2563eb" : "#64748b",
                             fontSize: '0.9rem'
                           }}>
                             {isUser ? "You" : "AI Assistant"}
@@ -471,7 +471,7 @@ export default function Home() {
                         </div>
                         <div style={{ 
                           fontSize: '0.7rem', 
-                          color: '#999', 
+                          color: '#64748b', 
                           marginTop: '4px',
                           marginLeft: isUser ? '0' : '10px',
                           marginRight: isUser ? '10px' : '0'
@@ -494,7 +494,7 @@ export default function Home() {
             marginTop: '1rem',
             boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
             borderRadius: '25px',
-            backgroundColor: 'white',
+            backgroundColor: '#f7fafc',
             padding: '5px'
           }}>
             <input
@@ -519,8 +519,8 @@ export default function Home() {
               style={{ 
                 padding: "0.8rem 1.5rem",
                 background: loading ? 
-                  "linear-gradient(90deg, #cccccc 0%, #dddddd 100%)" : 
-                  "linear-gradient(90deg, #3f51b5 0%, #5c6bc0 100%)",
+                  "linear-gradient(90deg, #e5e7eb 0%, #f3f4f6 100%)" : 
+                  "linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%)",
                 color: "white",
                 border: "none",
                 borderRadius: "20px",
@@ -528,7 +528,7 @@ export default function Home() {
                 fontWeight: "bold",
                 fontSize: "1rem",
                 marginRight: '5px',
-                boxShadow: loading ? "none" : "0 4px 10px rgba(63, 81, 181, 0.3)",
+                boxShadow: loading ? "none" : "0 2px 8px rgba(44, 62, 80, 0.07)",
                 transition: "all 0.2s ease"
               }}
               disabled={loading}

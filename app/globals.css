@@ -1,8 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #ffffff; /* chatbot card background */
+  --foreground: #1a202c; /* dark text */
+  --outer-background: #f3f6fa; /* area outside chatbot */
+  --blue-100: #e3f0fb;
+  --blue-300: #90cdf4;
+  --blue-500: #4299e1;
+  --blue-700: #2563eb;
+  --gray-100: #f7fafc;
+  --gray-300: #e2e8f0;
+  --gray-500: #a0aec0;
+  --gray-700: #4a5568;
 }
 
 @theme inline {
@@ -14,13 +23,29 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #1a202c; /* chatbot card background dark */
+    --foreground: #f7fafc; /* light text */
+    --outer-background: #171923; /* area outside chatbot dark */
+    --blue-100: #2a4365;
+    --blue-300: #3182ce;
+    --blue-500: #4299e1;
+    --blue-700: #63b3ed;
+    --gray-100: #2d3748;
+    --gray-300: #4a5568;
+    --gray-500: #a0aec0;
+    --gray-700: #cbd5e1;
   }
 }
 
 body {
-  background: var(--background);
+  background: var(--outer-background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.main-chatbot-container {
+  background: var(--background);
+  color: var(--foreground);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(44, 62, 80, 0.09);
 }
