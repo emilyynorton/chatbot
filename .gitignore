@@ -41,3 +41,4 @@ yarn-error.log*
 next-env.d.ts
 
 /app/generated/prisma
+/client_secret_493929154383-05ls01aq5koni3er2ol286ou19fd4281.apps.googleusercontent.com.json
