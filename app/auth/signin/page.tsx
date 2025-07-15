@@ -37,8 +37,8 @@ export default function SignIn() {
     <div className="flex min-h-screen flex-col items-center justify-center bg-gray-50">
       <div className="w-full max-w-md space-y-8 rounded-lg bg-white p-6 shadow-md">
         <div className="text-center">
-          <h1 className="text-3xl font-bold">Sign in to Chatbot</h1>
-          <p className="mt-2 text-gray-600">
+          <h1 className="text-3xl font-bold text-white">Sign in to Chatbot</h1>
+          <p className="mt-2 text-white/80">
             Sign in to access your conversations
           </p>
         </div>
@@ -47,7 +47,7 @@ export default function SignIn() {
           <button
             onClick={handleSubmit}
             disabled={isLoading}
-            className="flex w-full items-center justify-center rounded-md bg-white px-4 py-2 text-gray-700 shadow-md hover:bg-gray-50 disabled:opacity-70"
+            className="flex w-full items-center justify-center rounded-md bg-white px-4 py-2 text-white shadow-md hover:bg-gray-50 disabled:opacity-70"
           >
             {isLoading ? (
               "Signing in..."

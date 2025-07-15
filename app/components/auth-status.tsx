@@ -18,7 +18,7 @@ export function AuthStatus() {
           </span>
           <button
             onClick={() => signOut({ callbackUrl: "/" })}
-            className="rounded-md bg-gray-200 px-3 py-1 text-sm text-gray-700 hover:bg-gray-300"
+            className="ml-2 rounded-md bg-gray-200 px-3 py-1 text-sm text-gray-700 hover:bg-gray-300"
           >
             Sign out
           </button>
